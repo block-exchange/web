@@ -16,7 +16,12 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          Block App Exchange
+          <div class="search-container">
+          <form action="">
+            <input type="text" placeholder="Search.." name="search"></input>
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
         </header>
       </div>
     );
