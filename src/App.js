@@ -6,6 +6,8 @@ import logo from './logo.svg';
 import './App.css';
 
 import AppReviewCard from './components/CardComponent.js'
+import SearchBarComponent from './components/SearchComponent.js'
+
 
 
 
@@ -19,6 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <SearchBarComponent/>
           <AppReviewCard/>
         </header>
       </div>
