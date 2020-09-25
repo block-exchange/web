@@ -5,7 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 import logo from './logo.svg';
 import './App.css';
 
-import RecipeReviewCard from './components/CardComponent.js'
+import AppReviewCard from './components/CardComponent.js'
 
 
 
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <RecipeReviewCard/>
+          <AppReviewCard/>
         </header>
       </div>
     );
