@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RecipeReviewCard() {
+function RecipeReviewCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -122,3 +122,6 @@ export default function RecipeReviewCard() {
     </Card>
   );
 }
+
+
+export default RecipeReviewCard
