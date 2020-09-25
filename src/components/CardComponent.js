@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
+
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
@@ -48,11 +50,12 @@ function AppReviewCard() {
   };
 
   return (
+    <Grid container>
     <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            E
           </Avatar>
         }
         action={
@@ -82,6 +85,7 @@ function AppReviewCard() {
         </IconButton>
       </CardActions>
     </Card>
+    </Grid>
   );
 }
 
