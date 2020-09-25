@@ -9,7 +9,7 @@ const BLOCK_QUERY = gql`
       }
 `
 
-export class BlockQuery extends Component{
+class BlockQuery extends Component{
        render(){
 
        return (
