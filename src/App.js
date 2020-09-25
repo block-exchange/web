@@ -5,6 +5,9 @@ import { ApolloProvider } from 'react-apollo';
 import logo from './logo.svg';
 import './App.css';
 
+import RecipeReviewCard from './components/CardComponent.js'
+
+
 
 const client = new ApolloClient({
       uri : ""
@@ -16,12 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div class="search-container">
-          <form action="">
-            <input type="text" placeholder="Search.." name="search"></input>
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
-        </div>
+          <RecipeReviewCard/>
         </header>
       </div>
     );
