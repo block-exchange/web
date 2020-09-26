@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import axios from 'axios';
 
 import logo from './logo.svg';
 import './App.css';
 
 import AppReviewCard from './components/CardComponent.js'
 import SearchBarComponent from './components/SearchComponent.js'
-
+import RepoList from './components/RepoList.js'
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
         <header className="App-header">
           <SearchBarComponent/>
           <AppReviewCard/>
+          <RepoList/>
         </header>
       </div>
     );
