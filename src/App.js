@@ -21,10 +21,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <SearchBarComponent/>
-          <RepoList/>
-        </header>
+        <header className="App-header"/>
+        <SearchBarComponent/>
+        <RepoList/>
       </div>
     );
   }
