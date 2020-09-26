@@ -23,7 +23,6 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <SearchBarComponent/>
-          <AppReviewCard/>
           <RepoList/>
         </header>
       </div>
