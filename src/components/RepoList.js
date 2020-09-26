@@ -19,6 +19,7 @@ class RepoList extends React.Component {
   componentDidMount() {
     axios.get(ORG_QUERY)
       .then(res => {
+        console.log(res.data)
         const repos = res.data;
         this.setState({ repos });
       })
@@ -33,8 +34,8 @@ class RepoList extends React.Component {
                 alignItems="center">
   
           { this.state.repos.map(
-            repo => <Grid item  spacing={1} xs={12} sm={6} md={3} key={this.state.repos.indexOf(repo)}>
-              <AppReviewCard data={repo.name}/></Grid>)}
+            repo => <Grid item xs={12} sm={6} md={3} key={this.state.repos.indexOf(repo)}>
+              <AppReviewCard data={repo.name} desc={repo.description}/></Grid>)}
           
         </Grid>
       </div>

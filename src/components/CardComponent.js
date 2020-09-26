@@ -23,22 +23,15 @@ const useStyles = makeStyles((theme) => ({
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
 }));
 
 function AppReviewCard(props) {
   const classes = useStyles();
+  
 
   return (
     <Card className={classes.root}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            E
-          </Avatar>
-        }
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
@@ -48,13 +41,12 @@ function AppReviewCard(props) {
       />
       <CardMedia
         className={classes.media}
-        image="/static/images/cards/paella.jpg"
+        image="https://repository-images.githubusercontent.com/296251555/584a8200-0025-11eb-9dea-38d89d82d5f8"
         title="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-        Ethereum is the second-largest cryptocurrency platform by market capitalization, behind Bitcoin. 
-        It is a decentralized open source blockchain featuring smart contract functionality
+        {props.desc}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
