@@ -1,24 +1,24 @@
-import React , { Component } from 'react';
+import React from 'react';
+import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import Query from 'react-apollo';
 
+const RepoImage = () => (
+    <Query query={gql`
+        {
+            repository (owner: "Block-Exchange", name: "app-sawtooth") {
+                  openGraphImageUrl
+            }
+        }
+    `}
+    >
+        {({loading, error, data}) => {
+            if (loading) return <p>Loading ...</p>;
+            if (error) return <p>Error :(</p>;
+            
+            return data.repository.map((image) => (
+            ));
+        }}
+    </Query>
+);
 
-const BLOCK_QUERY = gql`
-      query Block_Query {
-
-      }
-`
-
-class BlockQuery extends Component{
-       render(){
-
-       return (
-       <div>
-          <h1>BlockQuery</h1>
-       </div>
-
-       )
-  }
-}
-
-export default BlockQuery
+export default RepoImage;
