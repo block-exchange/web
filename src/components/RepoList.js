@@ -38,7 +38,7 @@ class RepoList extends React.Component {
   
           { this.state.repos.map(
             repo => <Grid item xs={12} sm={6} md={3} key={this.state.repos.indexOf(repo)}>
-              <AppReviewCard data={repo.name} desc={repo.description}/></Grid>)}
+              <AppReviewCard title={repo.name} desc={repo.description}/></Grid>)}
           
         </Grid>
       </div>

@@ -37,7 +37,7 @@ function AppReviewCard(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={props.data}
+        title={props.title}
       />
       <CardMedia
         className={classes.media}
