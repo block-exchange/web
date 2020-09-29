@@ -1,4 +1,5 @@
-import React from 'react';
+import React ,  { useState, useEffect } from 'react';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -15,6 +16,17 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+
+const url = 'https://api.github.com/graphql'
+const token = "a4478bb771d7a43232f55169f65435a41953c7c2"
+
+const options = {
+  headers: {
+      'Content-Type': 'application/json',
+      'Authorization': token ? `Bearer ${token}` : "",
+  }
+};
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 250,
@@ -26,8 +38,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
+
+
 function AppReviewCard(props) {
+  const [image, setData] = useState([]);
   const classes = useStyles();
+  const json = {'query' : '{repository (owner: "Block-Exchange", name: "'+ props.title +'") {openGraphImageUrl}}' }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
+  const fetchData = async () => {
+        const res = await axios.post(url,json, options)
+            .then((res) => {
+              setData(res.data.data.repository.openGraphImageUrl);
+            })
+            .catch((err) => {
+              console.log(err);
+        })
+    };
   
 
   return (
@@ -42,7 +75,7 @@ function AppReviewCard(props) {
       />
       <CardMedia
         className={classes.media}
-        image="https://repository-images.githubusercontent.com/296251555/584a8200-0025-11eb-9dea-38d89d82d5f8"
+        image={image}
         title="Paella dish"
       />
       <CardContent>
