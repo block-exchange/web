@@ -17,8 +17,8 @@ const HEADER = "ACCEPT=application/vnd.github.v3+json"
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginLeft: 100,
-    marginRight : 100,
+    paddingLeft: '80px',
+    paddingRight : '20px',
     marginTop:50,
   },
 
@@ -45,15 +45,14 @@ function RepoList () {
 
 
     return (
-        <Grid container spacing={4} className={classes.root}>
+        <Grid container spacing={2} className={classes.root}>
   
           {
            repos.map(
-                      repo => <Grid item>
+                      repo => <Grid item xs={12} sm={6} md={3}>
                       <AppReviewCard title={repo.name} desc={repo.description}/>
                       </Grid>)
           }
-        }
           
         </Grid>
     )
