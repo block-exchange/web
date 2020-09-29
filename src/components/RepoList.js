@@ -18,7 +18,6 @@ const HEADER = "ACCEPT=application/vnd.github.v3+json"
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: '80px',
-    paddingRight : '20px',
     marginTop:50,
   },
 
@@ -33,7 +32,7 @@ function RepoList () {
 
     useEffect(() => {
         fetchData();
-      });
+      }, []);
 
     
     const fetchData = async () => {

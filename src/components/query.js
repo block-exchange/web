@@ -15,8 +15,7 @@ const RepoImage = () => (
             if (loading) return <p>Loading ...</p>;
             if (error) return <p>Error :(</p>;
             
-            return data.repository.map((image) => (
-            ));
+            console.log(data)
         }}
     </Query>
 );
