@@ -6,6 +6,8 @@ import axios from 'axios';
 import AppReviewCard from './CardComponent.js'
 
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/styles';
+
 
 
 
@@ -13,37 +15,47 @@ const ORG_QUERY = "https://api.github.com/orgs/Block-exchange/repos?ACCEPT=appli
 const HEADER = "ACCEPT=application/vnd.github.v3+json"
 
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    paddingLeft: '80px',
+    paddingRight : '20px',
+    marginTop:50,
+  },
 
-class RepoList extends React.Component {
-  state = {
-    repos: []
-  }
+}));
 
-  componentDidMount() {
-    axios.get(ORG_QUERY)
-      .then(res => {
-        console.log(res.data)
-        const repos = res.data;
-        this.setState({ repos });
-      })
-  }
 
-  render() {
+
+function RepoList () {
+    const classes = useStyles();
+    const [repos, setData] = useState([]);
+
+
+    useEffect(() => {
+        fetchData();
+      });
+
+    
+    const fetchData = async () => {
+      const res = await axios.get(
+        ORG_QUERY,
+      );
+      setData(res.data);
+    };
+
+
     return (
-      <div >
-        <Grid container spacing={2}  
-                direction="row"
-                justify="center"
-                alignItems="center">
+        <Grid container spacing={3} className={classes.root}>
   
-          { this.state.repos.map(
-            repo => <Grid item xs={12} sm={6} md={3} key={this.state.repos.indexOf(repo)}>
-              <AppReviewCard title={repo.name} desc={repo.description}/></Grid>)}
+          {
+           repos.map(
+                      repo => <Grid item xs={12} sm={6} md={3}>
+                      <AppReviewCard title={repo.name} desc={repo.description}/>
+                      </Grid>)
+          }
           
         </Grid>
-      </div>
     )
-  }
 }
 
 

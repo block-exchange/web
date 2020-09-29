@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <MyAppBar/>
-        <header className="App-header" />
+        <div className="App-header"/>
         <SearchBarComponent/>
         <RepoList/>
       </div>

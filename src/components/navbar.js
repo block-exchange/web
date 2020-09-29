@@ -12,9 +12,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
     },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
   }));
   
  function MyAppBar() {
@@ -24,9 +21,6 @@ const useStyles = makeStyles((theme) => ({
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar variant="dense">
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
             <Typography variant="h6" color="inherit">
               Block Exchange
             </Typography>
