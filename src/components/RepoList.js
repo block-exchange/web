@@ -45,7 +45,7 @@ function RepoList () {
 
 
     return (
-        <Grid container spacing={2} className={classes.root}>
+        <Grid container spacing={3} className={classes.root}>
   
           {
            repos.map(
