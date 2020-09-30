@@ -27,4 +27,6 @@ jobs:
     - name: Deploy
       run: |
         unset CI
+         git config --global user.email "adityasingh27@hotmail.com"
+         git config --global user.name "Aditya Singh"
         npm run deploy
