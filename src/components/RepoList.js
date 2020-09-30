@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: '80px',
     marginTop:50,
+    marginBottom:50,
   },
 
 }));

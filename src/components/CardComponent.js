@@ -18,7 +18,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
 const url = 'https://api.github.com/graphql'
-const token = "838d679d8c1e7dfe6c5e4143f02455f6adaa69a4"
+const token = process.env.REACT_APP_ACCESS_TOKEN
 
 const options = {
   headers: {

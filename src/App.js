@@ -12,9 +12,11 @@ class App extends Component {
     return (
         <div className="App">
           <MyAppBar/>
-          <div className="App-header"/>
+          <div className="App-header">
+            <img src={process.env.PUBLIC_URL + "/images/1.png"}/></div>
           <SearchBarComponent/>
           <RepoList/>
+          <div className="App-header"/>
         </div>
     );
   }
