@@ -29,4 +29,5 @@ jobs:
         git config --global user.email ${{ secrets.EMAIL }}
         git config --global user.name ${{ secrets.USERNAME }}
         git remote set-url origin https://github.com/Block-Exchange/web.git
+        unset CI
         npm run deploy
