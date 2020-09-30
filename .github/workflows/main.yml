@@ -15,18 +15,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Build
-      run: |
-        npm install
-        unset CI 
-        npm run build
-      env:
-        REACT_APP_ORG_NAME: ${{ secrets.REACT_APP_ORG_NAME }}
-        REACT_APP_ACCESS_TOKEN: ${{ secrets.REACT_APP_ACCESS_TOKEN }}
-
     - name: Deploy
       run: |
         unset CI
-         git config --global user.email "adityasingh27@hotmail.com"
-         git config --global user.name "Aditya Singh"
+        git config --global user.email adityasingh27@hotmail.com
+        git config --global user.name Aditya Singh
+        npm install
         npm run deploy
+      env:
+        REACT_APP_ORG_NAME: ${{ secrets.REACT_APP_ORG_NAME }}
+        REACT_APP_ACCESS_TOKEN: ${{ secrets.REACT_APP_ACCESS_TOKEN }}
