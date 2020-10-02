@@ -18,8 +18,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
 const url = 'https://api.github.com/graphql'
-const client_id = process.env.REACT_APP_CLIENT_ID
-const client_secret = process.env.REACT_APP_CLIENT_SECRET
+const token = process.env.REACT_APP_ACCESS_TOKEN
 
 
 const options = {
@@ -39,8 +38,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '56.25%', // 16:9
   },
 }));
-
-
 
 
 
