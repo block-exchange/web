@@ -1,4 +1,14 @@
 import React ,  { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+
+
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -17,8 +27,12 @@ import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
+
+import AppDetail from './AppDetail.js'
+
+
 const url = 'https://api.github.com/graphql'
-const token = process.env.REACT_APP_ACCESS_TOKEN
+const token = "aa8953fe03521472e9be939dc07d1cf6c927147c"
 
 
 const options = {
@@ -63,28 +77,49 @@ function AppReviewCard(props) {
   
 
   return (
-    <Card className={classes.root}>
-      <CardHeader
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={props.title}
-      />
-      <CardMedia
-        className={classes.media}
-        image={image}
-        title="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-        {props.desc}
-        </Typography>
-      </CardContent>
-    </Card>
+        <Router>
+	    <Link to = {props.title} >
+		<Card className={classes.root}>
+		  <CardHeader
+			action={
+			  <IconButton aria-label="settings">
+				<MoreVertIcon />
+			  </IconButton>
+			}
+			title={props.title}
+		  />
+		  <CardMedia
+			className={classes.media}
+			image= {process.env.PUBLIC_URL + '/images/' + props.title + ".jpeg"}			
+			title= {props.title}
+		  />
+		  <CardContent>
+			<Typography variant="body2" color="textSecondary" component="p">
+			{props.desc}
+			</Typography>
+		  </CardContent>
+		</Card>
+		</Link>
+		<Switch>
+          <Route exact path="/web">
+		    <div>home</div>
+          </Route>
+          <Route path="/app-sawtooth">
+            <div>Sawtooth</div>
+          </Route>
+          <Route path="/app-cosmos">
+            <div>cosmos</div>
+          </Route>
+        </Switch>
+		</Router>
+		
   );
 }
 
 
+
+
 export default AppReviewCard
+
+
+

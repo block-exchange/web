@@ -9,10 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 
 
-
-
-const ORG_QUERY = "https://api.github.com/orgs/Block-exchange/repos?ACCEPT=application/vnd.github.v3+json" 
-const HEADER = "ACCEPT=application/vnd.github.v3+json"
+const ORG_QUERY = "https://api.github.com/orgs/Block-exchange/repos?per_page=200" 
 
 
 const useStyles = makeStyles((theme) => ({
@@ -60,3 +57,12 @@ function RepoList () {
 
 
 export default RepoList
+
+
+function Home() {
+  return (
+    <div>
+      <h2>Home</h2>
+    </div>
+  );
+}
