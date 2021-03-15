@@ -61,7 +61,7 @@ function AppReviewCard(props) {
 		  />
 		  <CardMedia
 			className={classes.media}
-			image= {process.env.PUBLIC_URL + '/images/' + props.title + ".jpeg"}			
+			image= {process.env.PUBLIC_URL + '/images/' + props.title + ".png"}			
 			title= {props.title}
 		  />
 		  <CardContent>
