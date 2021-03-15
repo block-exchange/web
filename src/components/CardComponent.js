@@ -31,16 +31,6 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import AppDetail from './AppDetail.js'
 
 
-const url = 'https://api.github.com/graphql'
-
-
-const options = {
-  headers: {
-      'Content-Type': 'application/json',
-      'Authorization': token ? `Bearer ${token}` : "",
-  }
-};
-
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 250,
@@ -55,25 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 function AppReviewCard(props) {
-  const [image, setData] = useState([]);
   const classes = useStyles();
-  const json = {'query' : '{repository (owner: "Block-Exchange", name: "'+ props.title +'") {openGraphImageUrl}}' }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-
-  const fetchData = async () => {
-        const res = await axios.post(url,json, options)
-            .then((res) => {
-              setData(res.data.data.repository.openGraphImageUrl);
-            })
-            .catch((err) => {
-              console.log(err);
-        })
-    };
-  
 
   return (
         <Router>
