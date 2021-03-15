@@ -32,7 +32,6 @@ import AppDetail from './AppDetail.js'
 
 
 const url = 'https://api.github.com/graphql'
-const token = "aa8953fe03521472e9be939dc07d1cf6c927147c"
 
 
 const options = {
