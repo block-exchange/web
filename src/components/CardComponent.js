@@ -48,8 +48,6 @@ function AppReviewCard(props) {
   const classes = useStyles();
 
   return (
-        <Router>
-	    <Link to = {props.title} >
 		<Card className={classes.root}>
 		  <CardHeader
 			action={
@@ -70,20 +68,6 @@ function AppReviewCard(props) {
 			</Typography>
 		  </CardContent>
 		</Card>
-		</Link>
-		<Switch>
-          <Route exact path="/web">
-		    <div>home</div>
-          </Route>
-          <Route path="/app-sawtooth">
-            <div>Sawtooth</div>
-          </Route>
-          <Route path="/app-cosmos">
-            <div>cosmos</div>
-          </Route>
-        </Switch>
-		</Router>
-		
   );
 }
 
