@@ -19,7 +19,7 @@ class App extends Component {
     return (
 	    <Router>
 		<Switch>
-			<Route path="/" exact component= {Home} />
+			<Route path="/web" exact component= {Home} />
 			<Route path="/card" component= {AppReviewCard} />
 		</Switch>
        
