@@ -7,7 +7,7 @@ import RepoList from './components/RepoList.js'
 import MyAppBar from './components/navbar.js'
 
 import {
-  BrowserRouter as Router,
+  HashRouter,
   Switch,
   Route,
   Link
@@ -17,13 +17,12 @@ import {
 class App extends Component {
   render() {
     return (
-	    <Router>
+	    <HashRouter basename='/'>
 		<Switch>
 			<Route path="/web" exact component= {Home} />
 			<Route path="/card" component= {AppReviewCard} />
 		</Switch>
-       
-		</Router>
+		</HashRouter>
     );
   }
 }
