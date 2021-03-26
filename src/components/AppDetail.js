@@ -1,5 +1,7 @@
 import React ,  { useState, useEffect } from 'react';
 import axios from 'axios';
+import base64 from 'react-native-base64'
+
 
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -37,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 function AppDetail({match}){
 	console.log(match)
 	
-	const ORG_QUERY = "https://api.github.com/repos/block-exchange/" + match.params.name + "/contents/README.md" 
+	const ORG_QUERY = "https://api.github.com/repos/block-exchange/" + match.params.name + "/contents/web/index.html" 
 	
 	const classes = useStyles();
 	
