@@ -32,10 +32,32 @@ const useStyles = makeStyles((theme) => ({
 
 
 
+
+
 function AppDetail({match}){
 	console.log(match)
 	
+	const ORG_QUERY = "https://api.github.com/repos/block-exchange/" + match.params.name + "/contents/README.md" 
+	
 	const classes = useStyles();
+	
+	
+	const [repos, setData] = useState([]);
+
+
+    useEffect(() => {
+        fetchData();
+      }, []);
+
+    
+    const fetchData = async () => {
+      const res = await axios.get(
+        ORG_QUERY,
+      );
+      setData(res.data);
+    };
+	
+	console.log(repos)
 	
 	
 	return (
