@@ -18,6 +18,13 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+import {
+  HashRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 
 import AppDetail from './AppDetail.js'
@@ -40,6 +47,7 @@ function AppReviewCard(props) {
   const classes = useStyles();
 
   return (
+        <div>
 		<Card className={classes.root}>
 		  <CardHeader
 			action={
@@ -49,17 +57,20 @@ function AppReviewCard(props) {
 			}
 			title={props.title}
 		  />
+		  <Link to={props.title}>
 		  <CardMedia
 			className={classes.media}
 			image= {process.env.PUBLIC_URL + '/images/' + props.title + ".png"}			
 			title= {props.title}
 		  />
+		  </Link>
 		  <CardContent>
 			<Typography variant="body2" color="textSecondary" component="p">
 			{props.desc}
 			</Typography>
 		  </CardContent>
 		</Card>
+		</div>
   );
 }
 

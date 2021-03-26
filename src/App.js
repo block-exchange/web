@@ -6,6 +6,9 @@ import SearchBarComponent from './components/SearchComponent.js'
 import RepoList from './components/RepoList.js'
 import MyAppBar from './components/navbar.js'
 
+import AppDetail from './components/AppDetail.js'
+
+
 import {
   HashRouter,
   Switch,
@@ -20,7 +23,7 @@ class App extends Component {
 	    <HashRouter basename='/'>
 		<Switch>
 			<Route path="/" exact component= {Home} />
-			<Route path="/card" component= {AppReviewCard} />
+			<Route path="/:name" component= {AppDetail} />
 		</Switch>
 		</HashRouter>
     );
