@@ -1,6 +1,17 @@
 import React, {Component} from 'react';
 import './App.css';
 
+
+import { makeStyles } from '@material-ui/core/styles';
+import Pagination from '@material-ui/lab/Pagination';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import RedditIcon from '@material-ui/icons/Reddit';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+
+
 import AppReviewCard from './components/CardComponent.js'
 import SearchBarComponent from './components/SearchComponent.js'
 import RepoList from './components/RepoList.js'
@@ -15,6 +26,16 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 
 class App extends Component {
@@ -38,7 +59,14 @@ const Home = () => (
 	<img src={process.env.PUBLIC_URL + "/images/1.png"}/></div>
 	<SearchBarComponent/>
 	<RepoList/>
+	<Pagination count={10} color="primary" />
 	<div className="App-header"/>
+	<GitHubIcon />
+	<InstagramIcon />
+	<TwitterIcon />
+	<LinkedInIcon />
+	<RedditIcon />
+	<YouTubeIcon />
     </div>
 
 );

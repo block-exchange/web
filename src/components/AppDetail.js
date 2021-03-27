@@ -45,26 +45,48 @@ function AppDetail({match}){
 	
 	
 	const [repos, setData] = useState([]);
+	const [raw, setRaw] = useState([]);
 
 
     useEffect(() => {
         fetchData();
+		fetchRaw();
       }, []);
 
     
     const fetchData = async () => {
-      const res = await axios.get(
+      await axios.get(
         ORG_QUERY,
-      );
-      setData(res.data);
+      ).
+	  then(response => {
+		   setData(response.data);
+		   
+	  })
     };
+	
 	
 	console.log(repos)
 	
 	
+	const fetchRaw = async () => {
+		await axios.get(
+			repos.download_url,
+		  ).
+		  then(response => {
+			   setRaw(response.data);
+			   
+		  })
+	};
+
+
+	
 	return (
 	
-	<div> <div>{match.params.name}</div> <img src= {process.env.PUBLIC_URL + '/images/' + match.params.name + ".png"}/></div>
+	<div> 
+	<div>{match.params.name}</div> 
+	<img src= {process.env.PUBLIC_URL + '/images/' + match.params.name + ".png"}/>	
+	<div>{repos.download_url}</div>
+	</div>
 	
 	);
 
