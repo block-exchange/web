@@ -23,29 +23,15 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function RepoList () {
+function Posts ({posts , loading}) {
     const classes = useStyles();
-    const [repos, setData] = useState([]);
-
-
-    useEffect(() => {
-        fetchData();
-      }, []);
-
-    
-    const fetchData = async () => {
-      const res = await axios.get(
-        ORG_QUERY,
-      );
-      setData(res.data);
-    };
 
 
     return (
         <Grid container spacing={3} className={classes.root}>
   
           {
-           repos.map(
+           posts.map(
                       repo => <Grid item xs={12} sm={6} md={3}>
                       <AppReviewCard title={repo.name} desc={repo.description}/>
                       </Grid>)
@@ -56,4 +42,4 @@ function RepoList () {
 }
 
 
-export default RepoList
+export default Posts
