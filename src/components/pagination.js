@@ -4,10 +4,11 @@ import Pagination from '@material-ui/lab/Pagination';
 
 
 
-const PagePagination = ({postsPerPage , totalPosts}) => {
+const PagePagination = ({postsPerPage , totalPosts, setPage}) => {
+		
 	
 	return (
-	    <Pagination count={Math.ceil(totalPosts / postsPerPage)} color="primary" />
+	    <Pagination count={Math.ceil(totalPosts / postsPerPage)} color="primary" onChange={(event,val)=> setPage(val)}/>
 
     );
 	

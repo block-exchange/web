@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function Posts ({posts , loading}) {
+function Posts ({posts }) {
     const classes = useStyles();
 
 

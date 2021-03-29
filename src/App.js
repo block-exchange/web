@@ -44,7 +44,6 @@ const ORG_QUERY = "https://api.github.com/orgs/Block-exchange/repos?per_page=200
 
 const App = () => {
 	const[posts, setPosts] = useState([]);
-	const[loading, setLoading] = useState(false);
 	const[curentPage, setCurrentPage] = useState(1);
 	const[postsPerPage, setPostsPerPage] = useState(10);
 	
@@ -55,9 +54,7 @@ const App = () => {
 		
 	
 	useEffect(() => {
-		setLoading(true);
         fetchData();
-		setLoading(false);
       }, []);
 
     
@@ -69,11 +66,13 @@ const App = () => {
     };
 	
 	
+	const setPage = (val) => setCurrentPage(val);
+	
     return (
 	    <div>
 	    <HashRouter basename='/'>
 		<Switch>
-			<Route path="/" exact render={() => (<Home posts = {posts} postsPerPage={postsPerPage} totalPosts = {posts.length} /> )}/>
+			<Route path="/" exact render={() => (<Home posts = {currentPosts} postsPerPage={postsPerPage} totalPosts = {posts.length}  setPage={setPage}/> )}/>
 			<Route path="/:name" component= {AppDetail} />
 		</Switch>
 		</HashRouter>
@@ -82,7 +81,7 @@ const App = () => {
     );
 };
 
-const Home = ({posts, postsPerPage, totalPosts}) => (
+const Home = ({posts, postsPerPage, totalPosts, setPage}) => (
 
 	<div className="App">     
 	<MyAppBar/>
@@ -90,7 +89,7 @@ const Home = ({posts, postsPerPage, totalPosts}) => (
 	<img src={process.env.PUBLIC_URL + "/images/1.png"}/></div>
 	<SearchBarComponent/>
 	<Posts posts={posts}/>
-	<PagePagination postsPerPage={postsPerPage} totalPosts = {posts.length}/>
+	<PagePagination postsPerPage={postsPerPage} totalPosts = {totalPosts} setPage={setPage}/>
 	<div className="App-header">
 	<GitHubIcon />
 	<InstagramIcon />
